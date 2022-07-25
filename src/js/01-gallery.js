@@ -1,6 +1,9 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
+
 import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+// let SimpleLightbox = require('simplelightbox');
 // Change code below this line
 
 console.log(galleryItems);
@@ -9,7 +12,6 @@ const galleryListDiv = document.querySelector('.gallery');
 const cardsMarkup = createPictureCards(galleryItems);
 
 galleryListDiv.insertAdjacentHTML('afterbegin', cardsMarkup);
-galleryListDiv.addEventListener('click', onPaletteContainerClick);
 
 function createPictureCards(galleryItems) {
   return galleryItems
