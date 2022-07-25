@@ -1,5 +1,6 @@
 // Add imports above this line
 import { galleryItems } from './gallery-items';
+import SimpleLightbox from 'simplelightbox';
 // Change code below this line
 
 console.log(galleryItems);
@@ -26,5 +27,3 @@ let lightbox = new SimpleLightbox('.gallery a', {
   // captionsData: title,
   overlayOpacity: 1,
 });
-
-let a;
