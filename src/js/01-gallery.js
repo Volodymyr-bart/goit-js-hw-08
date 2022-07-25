@@ -26,3 +26,5 @@ let lightbox = new SimpleLightbox('.gallery a', {
   // captionsData: title,
   overlayOpacity: 1,
 });
+
+let a;
