@@ -16,7 +16,6 @@ refs.form.addEventListener('input', e => {
 });
 refs.textarea.addEventListener('input', throttle(onTextareaInput, 500));
 
-
 function onFormSubmit(e) {
   e.preventDefault();
   console.log('poletelo');
@@ -29,10 +28,11 @@ function onTextareaInput(e) {
 }
 
 function populateTextarea() {
-  const savedMessage = localStorage.getItem(STORAGE_KEY);
+  const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (savedMessage) {
-    console.log(savedMessage);
-    refs.textarea.value = savedMessage;
+    const { email, message } = savedMessage;
+    refs.form.value = email ? email : ``;
+    refs.textarea.value = message ? message : ``;
   }
 }
 populateTextarea();
