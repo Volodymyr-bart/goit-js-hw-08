@@ -5,13 +5,13 @@ import throttle from 'lodash.throttle';
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
-player.on('play', function () {
-  console.log('played the video!');
-});
+const time = function (currentTime) {
+  let { seconds } = currentTime;
+  let savedTime = localStorage.setItem('timer-video', seconds);
+};
 
-player.getVideoTitle().then(function (title) {
-  console.log('title:', title);
-});
+player.on('timeupdate', throttle(time, 1000));
+const savedCurrentTime = JSON.parse(localStorage.getItem('timer-video'));
+// console.log(typeof savedCurrentTime);
 
-localStorage.setItem('timer-video', 'this is time');
-console.log(localStorage);
+player.setCurrentTime(savedCurrentTime);
