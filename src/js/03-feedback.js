@@ -7,9 +7,7 @@ const refs = {
   inputEmail: document.querySelector('input'),
   textarea: document.querySelector('.feedback-form textarea'),
 };
-
 const formData = {};
-
 // refs.form.addEventListener('input', e => {
 // formData[e.target.name] = e.target.value;
 // localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
@@ -20,7 +18,8 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  console.log('poletelo');
+  const savesData = JSON.parse(localStorage.getItem('feedback-form-state'));
+  console.log(savesData);
   e.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
@@ -33,7 +32,6 @@ function onTextareaInput(e) {
 
 function populateTextarea() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  console.log(savedMessage);
   if (savedMessage) {
     const { email, message } = savedMessage;
     refs.inputEmail.value = email ? email : ``;
